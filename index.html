@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UNO Card Game</title>
+    <link rel="stylesheet" href="css/style.css">
+		
+</head>
+<body>
+    <div class="game-container">
+        <!-- Game Header -->
+        <header class="game-header">
+            <div class="header-content">
+                <h1 class="game-title">UNO</h1>
+                <div class="game-stats">
+                    <div class="stat-item">
+                        <span class="stat-label">Wins:</span>
+                        <span class="stat-value" id="wins">0</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-label">Losses:</span>
+                        <span class="stat-value" id="losses">0</span>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <!-- Game Board -->
+        <main class="game-board">
+            <!-- Bot Player Area -->
+            <section class="player-area bot-area">
+                <div class="player-info">
+                    <h3 class="player-name">Bot</h3>
+                    <span class="card-count" id="bot-card-count">7 cards</span>
+                </div>
+                <div class="hand bot-hand" id="bot-hand"></div>
+            </section>
+
+            <!-- Center Game Area -->
+            <section class="center-area">
+                <!-- Turn Indicator -->
+                <div class="turn-indicator" id="turn-indicator">
+                    <span class="turn-text">Your Turn</span>
+                </div>
+
+                <!-- Piles Area -->
+                <div class="piles-container">
+                    <div class="pile draw-pile" id="draw-pile">
+                        <div class="card card-back">
+                            <div class="card-pattern"></div>
+                        </div>
+                        <span class="pile-label">Draw Pile</span>
+                        <span class="card-count" id="deck-count">108</span>
+                    </div>
+                    
+                    <div class="pile discard-pile" id="discard-pile">
+                        <div class="card" id="top-card">
+                            <!-- Top card will be placed here -->
+                        </div>
+                        <span class="pile-label">Discard Pile</span>
+                    </div>
+                </div>
+
+                <!-- Game Controls -->
+                <div class="game-controls">
+                    <button id="draw-btn" class="btn btn-primary">
+                        <span class="btn-icon">📄</span>
+                        Draw Card
+                    </button>
+                    <button id="uno-btn" class="btn btn-uno" style="display: none;">
+                        <span class="btn-icon">🎯</span>
+                        UNO!
+                    </button>
+                    <button id="restart-btn" class="btn btn-secondary">
+                        <span class="btn-icon">🔄</span>
+                        New Game
+                    </button>
+                </div>
+            </section>
+
+            <!-- Human Player Area -->
+            <section class="player-area human-area">
+                <div class="player-info">
+                    <h3 class="player-name">You</h3>
+                    <span class="card-count" id="human-card-count">7 cards</span>
+                </div>
+                <div class="hand human-hand" id="human-hand"></div>
+            </section>
+        </main>
+
+        <!-- Game Messages -->
+        <div class="game-messages" id="game-messages"></div>
+
+        <!-- Color Picker Modal -->
+        <div class="modal-overlay" id="color-picker-modal" style="display: none;">
+            <div class="modal-content">
+                <h3>Choose a Color</h3>
+                <div class="color-options">
+                    <button class="color-btn red" data-color="red">
+                        <div class="color-circle red"></div>
+                        <span>Red</span>
+                    </button>
+                    <button class="color-btn blue" data-color="blue">
+                        <div class="color-circle blue"></div>
+                        <span>Blue</span>
+                    </button>
+                    <button class="color-btn green" data-color="green">
+                        <div class="color-circle green"></div>
+                        <span>Green</span>
+                    </button>
+                    <button class="color-btn yellow" data-color="yellow">
+                        <div class="color-circle yellow"></div>
+                        <span>Yellow</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Game Over Modal -->
+        <div class="modal-overlay" id="game-over-modal" style="display: none;">
+            <div class="modal-content">
+                <h3 id="game-over-title">Game Over</h3>
+                <p id="game-over-message"></p>
+                <div class="modal-actions">
+                    <button id="play-again-btn" class="btn btn-primary">Play Again</button>
+                    <button id="close-modal-btn" class="btn btn-secondary">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="js/deck.js"></script>
+    <script src="js/game.js"></script>
+    <script src="js/ui.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html> 
